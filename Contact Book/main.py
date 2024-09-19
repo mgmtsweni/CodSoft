@@ -50,7 +50,7 @@ def delete(toDel):
     connection.commit()
     messagebox.showinfo('Success', f'{name} was deleted Successful')
   
-def notDelete(toDel):
+def notDelete():
     deleteFrame.destroy()
 
 def showDelete():
@@ -59,10 +59,10 @@ def showDelete():
     global deleteFrame
     deleteFrame = LabelFrame(root, width=350, height=150, text="Delete Contact")
     deleteFrame.place(x=550, y=70)
-    storeName = Label(deleteFrame, text=f"Are you sure you want to Delete store {item}?",)
+    storeName = Label(deleteFrame, text=f"Are you sure you want to delete store No {item}?",)
     storeName.place(x=25, y=10)
     btnYes = Button(deleteFrame, text='No', bd=0, activeforeground='black',
-                        bg='white', fg="black", font=('Arial', 15, 'bold'), command=lambda: notDelete(toDel))
+                        bg='white', fg="black", font=('Arial', 15, 'bold'), command=notDelete)
     btnYes.place(x=210, y=50)
     btnNo = Button(deleteFrame, text='Yes', bd=0, activeforeground='black',
                         bg='white', fg="black", font=('Arial', 15, 'bold'), command=lambda: delete(toDel))
@@ -134,10 +134,8 @@ def update():
     global updateFrame
     updateFrame = LabelFrame(root, padx=20, pady=40, text="Update Contact")
     updateFrame.place(x=540, y=65)
-    val = contactList.get(ANCHOR)
-    item = val[7:11]
-    print(val)
-    print(item)
+    field = contactList.get(ANCHOR)
+    item = field[7:11]
 
     global nameEntry, numberEntry, emailEntry, addressEntry
 
@@ -183,11 +181,6 @@ def refresh():
 def Exit():
     root.destroy()
 
-bgimage = PhotoImage(file='bg.png')
-
-# background image
-bglabel = Label(root, image=bgimage)
-bglabel.place(x=0, y=0)
 
 btnFrame = LabelFrame(root, width=350, height=150)
 btnFrame.place(x=40, y=20)
@@ -219,5 +212,4 @@ btnEdite = Button(btnFrame, text='Exit', bd=0, activeforeground='black',
 btnEdite.grid(row=1,column=7)
 
 root.mainloop()
-
 connection.close()

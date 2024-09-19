@@ -36,10 +36,9 @@ def main():
     root.destroy()
     import main
 
-
 btnView = Button(root, text='Back', bd=0, activeforeground='black',
                     bg='white', fg="black", font=('Arial', 15, 'bold'), command=main)
-btnView.grid(row=1,column=1)
+btnView.place(x=20, y=40)
 
 searchFrame = LabelFrame(root, padx=20, pady=80, text="Search for Contact")
 searchFrame.place(x=20, y=90)
