@@ -1,8 +1,3 @@
-def get_numbers():
-    num1 = int(input('Enter your first number: '))
-    num2 = int(input('Enter your second number: '))
-    return num1, num2
-
 def add(a, b):
     return a + b
 
@@ -32,13 +27,13 @@ def Calculator():
 
     choice = input("Choose your operator: ")
     if choice in operations:
-        num1, num2 = get_numbers()
+        num1 = int(input('Enter your first number: '))
+        num2 = int(input('Enter your second number: '))
         opp_name, opp_func = operations[choice]
         result = opp_func(num1, num2)
         print("Result of", opp_name, ":",result)
     else:
         print("Invalid choice. Please select a valid operator.")
-
 
 if __name__ == "__main__":
     Calculator()
