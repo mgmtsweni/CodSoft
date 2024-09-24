@@ -1,6 +1,4 @@
 from tkinter import * # type: ignore
-import sqlite3
-from tkinter import messagebox
 import random
 
 root = Tk()
@@ -10,7 +8,7 @@ root.resizable(0, 0) # type: ignore
 
 def playAgain():
     root.destroy()
-    import rpcTk
+    import RockPaperScissors
 
 def gameLogic(player):
     pitchFrame = Listbox(groundFrame, width=58, height=19)
